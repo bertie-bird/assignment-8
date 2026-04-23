@@ -1,15 +1,23 @@
 console.log("script.js connected!");
 
 let userAnswers = [];
+    for(let anser of userAnswers)
 
 let buttons = document.querySelectorAll(".answer-btn");
 
+questionBlocks.forEach(function(block, qIndex) {
+   
+    let buttons = block.querySelectorAll(".answer-btn");
 buttons.forEach(function(button, index){
   button.addEventListener("click", function() {
     
-    userAnswers[index] = button.dataset.answer;
+    buttons.forEach(btn => btn.classList.remove("selected"));
+    button.classList.add("selected");
+    
+    userAnswers[qIndex] = button.dataset.answer;
 
     button.classList.add("selected");
+    });
   });
 });
 
